@@ -2,7 +2,7 @@ name: Get Subscription Weekly
 
 on:
   schedule:
-    - cron: '0 16 * * 6'  # 北京时间每周日凌晨执行
+    - cron: '0 3 * * *' #每天凌晨三点
   workflow_dispatch: # 允许手动触发
 
 permissions:
@@ -28,7 +28,7 @@ jobs:
     - name: Collect Subscribe
       id: collect
       run: |
-        python -u subscribe/collect.py -as
+        python -u subscribe/collect.py -as -d 3000
       
     - name: Create/Update Gist
       env:
