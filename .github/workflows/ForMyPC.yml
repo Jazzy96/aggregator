@@ -5,6 +5,10 @@ on:
     - cron: '0 3 * * *' #每天凌晨三点
   workflow_dispatch: # 允许手动触发
 
+env:
+  # time zone
+  TZ: Asia/Shanghai
+
 permissions:
   contents: write
 
