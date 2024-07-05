@@ -37,9 +37,7 @@ jobs:
     - name: Create/Update Gist
       env:
         GH_TOKEN: ${{ secrets.PAT }}
+        ENABLE_SPECIAL_PROTOCOLS: 0
       run: |
         cd data
-        gh gist edit 64272563c2d4779b5ca0a28ead4c603a  --add "proxies.yaml"
-        gh gist edit 64272563c2d4779b5ca0a28ead4c603a  --add "subscribes.txt"
-        gh gist edit 64272563c2d4779b5ca0a28ead4c603a  --add "domains.txt"
-        gh gist edit 64272563c2d4779b5ca0a28ead4c603a  --add "valid-domains.txt"
+        gh gist edit 64272563c2d4779b5ca0a28ead4c603a  --add "clash.yaml"
