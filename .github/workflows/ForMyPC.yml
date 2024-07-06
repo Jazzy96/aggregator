@@ -30,6 +30,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Collect Subscribe
+      env:
+        ENABLE_SPECIAL_PROTOCOLS: 0
       id: collect
       run: |
         python -u subscribe/collect.py -as -d 3000
@@ -37,7 +39,6 @@ jobs:
     - name: Create/Update Gist
       env:
         GH_TOKEN: ${{ secrets.PAT }}
-        ENABLE_SPECIAL_PROTOCOLS: 0
       run: |
         cd data
         gh gist edit d557eb147718f11f262108474e2156c1  --add "clash.yaml"
