@@ -8,6 +8,7 @@ on:
 env:
   # time zone
   TZ: Asia/Shanghai
+  ENABLE_SPECIAL_PROTOCOLS: 0
 
 permissions:
   contents: write
@@ -30,8 +31,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Collect Subscribe
-      env:
-        ENABLE_SPECIAL_PROTOCOLS: 0
       id: collect
       run: |
         python -u subscribe/collect.py -as -d 3000
